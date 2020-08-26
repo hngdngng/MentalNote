@@ -22,14 +22,11 @@ $(document).ready(function () {//once the page is loaded:
 //   });
 // };
 
-// // A function for saving a note to the db
-// const saveNote = (note) => {
-//   return $.ajax({
-//     url: "/api/notes",
-//     data: note,
-//     method: "POST",
-//   });
-// };
+// A function for saving a note to the db
+const saveNote = (note) => {
+  return $.post("/api/notes", note)
+  .then(() => console.log("posting note"));
+};
 
 // // A function for deleting a note from the db
 // const deleteNote = (id) => {
@@ -64,7 +61,7 @@ const handleNoteSave = function () {
   };
   console.log(newNote);
   console.log("handleNoteSave working")
-  // saveNote(newNote)
+  saveNote(newNote)
   // .then(() => {
   //   getAndRenderNotes();
   //   renderActiveNote();
