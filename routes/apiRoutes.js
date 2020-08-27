@@ -8,6 +8,7 @@ module.exports = function (app) {
         const notesDB = JSON.parse(fs.readFileSync("./db/db.json"));
         const newNote = req.body;
         notesDB.push(newNote);
+        notesDB.forEach((note, i) => note.id = i + 1);
         writeToFile("./db/db.json", JSON.stringify(notesDB));
         console.log("POST routing working")
         return res.json(newNote);
