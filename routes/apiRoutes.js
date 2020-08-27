@@ -3,13 +3,13 @@ var path = require("path");
 const fs = require("fs");
 
 // ROUTING
-module.exports = function (app) {
+module.exports = app => {
     app.post("/api/notes", (req, res) => {
         const notesDB = JSON.parse(fs.readFileSync("./db/db.json"));
         const newNote = req.body;
         notesDB.push(newNote);
         notesDB.forEach((note, i) => note.id = i + 1);
-        writeToFile("./db/db.json", JSON.stringify(notesDB));
+        writeToFile("./db/db.json", JSON.stringify(notesDB, null, 1));
         return res.json(newNote);
     });
 
@@ -22,7 +22,7 @@ module.exports = function (app) {
         const deletedID = req.params.id;
         const notesDB = JSON.parse(fs.readFileSync("./db/db.json"));
         const updatedDB = notesDB.filter(note => note.id != deletedID);
-        writeToFile("./db/db.json", JSON.stringify(updatedDB));
+        writeToFile("./db/db.json", JSON.stringify(updatedDB, null, 1));
         return res.json(updatedDB);
     });
 }
