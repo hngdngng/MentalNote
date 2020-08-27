@@ -2,7 +2,7 @@
 var path = require("path");
 
 // ROUTING
-module.exports = function (app) {
+module.exports = app => {
     // If route (url) is '/notes', send user to notes page
     app.get("/notes", function (req, res) {
         res.sendFile(path.join(__dirname, "../public/notes.html"));

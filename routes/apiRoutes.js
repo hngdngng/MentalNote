@@ -10,15 +10,20 @@ module.exports = function (app) {
         notesDB.push(newNote);
         notesDB.forEach((note, i) => note.id = i + 1);
         writeToFile("./db/db.json", JSON.stringify(notesDB));
-        console.log("POST routing working")
         return res.json(newNote);
     });
 
     app.get("/api/notes", (req, res) => {
         const notesDB = JSON.parse(fs.readFileSync("./db/db.json"));
-        console.log(notesDB);
-        console.log("GET routing working")
         return res.json(notesDB);
+    });
+
+    app.delete("/api/notes/:id", (req, res) => {
+        const deletedID = req.params.id;
+        const notesDB = JSON.parse(fs.readFileSync("./db/db.json"));
+        const updatedDB = notesDB.filter(note => note.id != deletedID);
+        writeToFile("./db/db.json", JSON.stringify(updatedDB));
+        return res.json(updatedDB);
     });
 }
 
@@ -28,6 +33,6 @@ function writeToFile(fileName, data) {
         if (err) {
             return console.log(err);
         }
-        console.log("Success!");
+        console.log("Successfully updated database");
     })
 }
