@@ -4,6 +4,7 @@
   ## Description 
   MentalNote is an application that helps you declutter your thoughts. It is a clean application that will let you create and save notes, view your old ones, and let you delete any you no longer need. MentalNote is a full-stack application featuring HTML5, CSS, Javascript/ES6, Node and Express.
 
+  ![Image of application home page](./public/assets/home.png) ![Image of application note page](./public/assets/notes.png)  
 
   ## Table of Contents
   * [Installation](#installation)

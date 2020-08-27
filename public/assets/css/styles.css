@@ -3,9 +3,42 @@ html, body {
   margin: 0;
   padding: 0;
 }
+#illustration {
+  margin-bottom: 0;
+}
+
+#illustration img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 400px;
+  height: auto;
+}
+
+#about a {
+  background-color: rgb(235,113,33);
+  border-width: 0;
+}
+
+#credit {
+  margin-top: 50px;
+}
+
+#nav-head {
+  background-color: rgb(238, 212, 202);
+}
+
+#navbar-text {
+  color: rgb(235,113,33)
+}
 
 #save-note {
   display: none;
+  color: rgb(235,113,33)
+}
+
+#new-note {
+  color: rgb(235,113,33)
 }
 
 .icons i {
