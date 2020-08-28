@@ -24,6 +24,10 @@ html, body {
   margin-top: 50px;
 }
 
+#credit a {
+  color: black;
+}
+
 #nav-head {
   background-color: rgb(238, 212, 202);
 }
